@@ -1,0 +1,12 @@
+<h2>Lista de Cursos</h2>
+<a href="{{ url_for('agregar_curso') }}">nuevo curso</a>
+<ul>
+{% for c in cursos %}
+  <li>
+    {{ c.nombre }} ({{ c.total }} estudiantes) -
+    <a href="{{ url_for('editar_curso', id=c.id) }}">Editar</a> |
+    <a href="{{ url_for('eliminar_curso', id=c.id) }}">Eliminar</a>
+  </li>
+{% endfor %}
+</ul>
+<a href="{{ url_for('inicio') }}">volver</a>

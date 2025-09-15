@@ -1,0 +1,15 @@
+<h2>{{ 'Editar' if estudiante else 'Agregar' }} estudiante</h2>
+<form method="post">
+  nombre: <input type="text" name="nombre" value="{{ estudiante.nombre if estudiante else '' }}"><br>
+  email: <input type="email" name="email" value="{{ estudiante.email if estudiante else '' }}"><br>
+  curso:
+  <select name="curso_id">
+    {% for c in cursos %}
+      <option value="{{ c.id }}" {% if estudiante and estudiante.curso_id == c.id %}selected{% endif %}>
+        {{ c.nombre }}
+      </option>
+    {% endfor %}
+  </select><br>
+  <button type="submit">guardar</button>
+</form>
+<a href="{{ url_for('lista_estudiantes') }}">volver</a>

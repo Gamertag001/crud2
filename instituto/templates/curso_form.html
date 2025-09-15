@@ -1,0 +1,7 @@
+<h2>{{ 'editar' if curso else 'agregar' }} Curso</h2>
+<form method="post">
+  nombre: <input type="text" name="nombre" value="{{ curso.nombre if curso else '' }}"><br>
+  descripción: <input type="text" name="descripcion" value="{{ curso.descripcion if curso else '' }}"><br>
+  <button type="submit">guardar</button>
+</form>
+<a href="{{ url_for('lista_cursos') }}">volver</a>
